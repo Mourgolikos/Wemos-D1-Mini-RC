@@ -1,3 +1,10 @@
+<?php
+if(isset($_POST['cmd'])) {
+	$string = implode("", $_POST['cmd']);
+	if(is_numeric($string))
+		file_put_contents("cmd.txt", $string);
+}
+?>
 <head>
 	<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -101,7 +108,7 @@
 			function submitForm() {
 				$.ajax({
 					type: "POST",
-					url: '/cmd.php',
+					url: 'index.php',
 					data: $("#form").serialize()
 				});
 
