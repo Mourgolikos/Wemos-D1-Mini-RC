@@ -6,19 +6,29 @@
 #include <ESP8266HTTPClient.h>
 
 ESP8266WiFiMulti WiFiMulti;
+
+//////////////////// SET THESE UP ////////////////////////
+// WiFi SSID and Password
+const char* ssid = "ssid name";
+const char* password = "ssid password";
+// The web host of the readable file
+const char* cmdURL = "http://SERVER.com/cmd.txt";
+/////////////////////////////////////////////////////////
+
+
 // Initialize
-int PWM1   = D2; // PWM Pin Motor 1
+int PWM1 = D2; // PWM Pin Motor 1
 int PoM1 = D1;   // Polarity Pin Motor 1
-int PWM2   = D4; // PWM Pin Motor 2  
+int PWM2 = D4; // PWM Pin Motor 2  
 int PoM2 = D3;   // Polarity Pin Motor 2
 
-int ValM1   = 200; // Initial Value for PWM Motor 1 
-int ValM2   = 200; // Initial Value for PWM Motor 2
+int ValM1 = 200; // Initial Value for PWM Motor 1 
+int ValM2 = 200; // Initial Value for PWM Motor 2
 
 void setup()
 {
-  pinMode(PWM1,   OUTPUT); 
-  pinMode(PoM1,   OUTPUT); 
+  pinMode(PWM1, OUTPUT); 
+  pinMode(PoM1, OUTPUT); 
   pinMode(PWM2, OUTPUT);   
   pinMode(PoM2, OUTPUT);   
   Serial.begin(115200);         // Used to check value 
@@ -33,7 +43,7 @@ void setup()
       delay(1000);
   }
 
-  WiFiMulti.addAP("LC", "");
+  WiFiMulti.addAP(ssid, password);
 }
 
 void motor1Forward() {
@@ -74,7 +84,7 @@ void loop()
 
         Serial.print("[HTTP] begin...\n");
         // configure traged server and url
-        http.begin("http://SERVER.com/cmd.txt"); //HTTP
+        http.begin(cmdURL); //HTTP
 
         Serial.print("[HTTP] GET...\n");
         // start connection and send HTTP header
