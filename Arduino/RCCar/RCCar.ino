@@ -21,11 +21,12 @@ int PWM1 = D2; // PWM Pin Motor 1 (ln1)
 int PoM1 = D1;   // Polarity Pin Motor 1 (ln2)
 int PWM2 = D4; // PWM Pin Motor 2 (ln4)
 int PoM2 = D3;   // Polarity Pin Motor 2 (ln3)
-int enA = D7; //Motor1 Speed Pin
-int enB = D8; //Motor2 Speed Pin
+int enA = D7; //Motor1 Speed Pin (although it will not be used, for simplicity)
+int enB = D8; //Motor2 Speed Pin (although it will not be used, for simplicity)
 
-int Motor1Speed = 69; // Speed 0-255
-int Motor2Speed = 69; // Speed 0-255
+
+int Motor1Speed = 123; // Speed 0-255. Output is 3.3v (analog). LLC needed. (Motor starts rotating after 4,5V)
+int Motor2Speed = 123; // Speed 0-255. Output is 3.3v (analog., LLC needed. (Motor starts rotating after 4,5V)
 
 void setup()
 {
@@ -34,7 +35,7 @@ void setup()
   pinMode(PWM2, OUTPUT);   
   pinMode(PoM2, OUTPUT);
   pinMode(enA, OUTPUT);
-  pinMode(enB, OUTPUT);   
+  pinMode(enB, OUTPUT);
   Serial.begin(115200);         // Used to check value 
   Serial.setDebugOutput(true);
   Serial.println();
@@ -85,6 +86,7 @@ void loop()
     // Set the speed for each motor
     analogWrite(enA, Motor1Speed);
     analogWrite(enB, Motor2Speed);
+
     
     if((WiFiMulti.run() == WL_CONNECTED)) {
 
