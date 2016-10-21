@@ -67,8 +67,8 @@ int PWM1 = D7; // PWM Pin Motor 1 (ln1)
 int PoM1 = D8;   // Polarity Pin Motor 1 (ln2)
 int PWM2 = D5; // PWM Pin Motor 2 (ln4)
 int PoM2 = D6;   // Polarity Pin Motor 2 (ln3)
-int enA = D7; //Motor1 Speed Pin (although it will not be used, for simplicity)
-int enB = D8; //Motor2 Speed Pin (although it will not be used, for simplicity)
+int enA = D3; //Motor1 Speed Pin (although it will not be used, for simplicity)
+int enB = D4; //Motor2 Speed Pin (although it will not be used, for simplicity)
 
 
 int Motor1Speed = 123; // Speed 0-255. Output is 3.3v (analog). LLC needed. (Motor starts rotating after 4,5V)
