@@ -201,9 +201,10 @@ void loop()
 
         http.end();
     }
+      delay(888);
+      //The motor#stop() below will stop the car every ~1sec, to avoid chasing it :P
       motor1Stop(); // STOP the car in case of signal lost. (For emergency just switch off the router)
       motor2Stop(); // STOP the car in case of signal lost. (For emergency just switch off the router)
-      delay(667);
   
 }
 // End.
