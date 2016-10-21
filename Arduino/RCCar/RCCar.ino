@@ -21,16 +21,20 @@ int PWM1 = D2; // PWM Pin Motor 1 (ln1)
 int PoM1 = D1;   // Polarity Pin Motor 1 (ln2)
 int PWM2 = D4; // PWM Pin Motor 2 (ln4)
 int PoM2 = D3;   // Polarity Pin Motor 2 (ln3)
+int enA = D7; //Motor1 Speed Pin
+int enB = D8; //Motor2 Speed Pin
 
-int ValM1 = 69; // Initial Value for PWM Motor 1 
-int ValM2 = 69; // Initial Value for PWM Motor 2
+int Motor1Speed = 69; // Speed 0-255
+int Motor2Speed = 69; // Speed 0-255
 
 void setup()
 {
   pinMode(PWM1, OUTPUT); 
   pinMode(PoM1, OUTPUT); 
   pinMode(PWM2, OUTPUT);   
-  pinMode(PoM2, OUTPUT);   
+  pinMode(PoM2, OUTPUT);
+  pinMode(enA, OUTPUT);
+  pinMode(enB, OUTPUT);   
   Serial.begin(115200);         // Used to check value 
   Serial.setDebugOutput(true);
   Serial.println();
@@ -77,7 +81,11 @@ void motor2Stop() {
 }
 // Main program
 void loop()
-{
+{   
+    // Set the speed for each motor
+    analogWrite(enA, Motor1Speed);
+    analogWrite(enB, Motor2Speed);
+    
     if((WiFiMulti.run() == WL_CONNECTED)) {
 
         HTTPClient http;
