@@ -195,12 +195,15 @@ void loop()
             }
         } else {
             Serial.printf("[HTTP] GET... failed, error: %s\n", http.errorToString(httpCode).c_str());
+            motor1Stop(); // STOP the car in case of signal lost. (For emergency just switch off the router)
             motor2Stop(); // STOP the car in case of signal lost. (For emergency just switch off the router)
         }
 
         http.end();
     }
-      delay(888);
+      motor1Stop(); // STOP the car in case of signal lost. (For emergency just switch off the router)
+      motor2Stop(); // STOP the car in case of signal lost. (For emergency just switch off the router)
+      delay(667);
   
 }
 // End.
