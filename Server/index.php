@@ -114,8 +114,8 @@ if(isset($_POST['cmd'])) {
 
 			}
 			$('#forward').click(function() {
-				$('#motor1').val(1);
-				$('#motor2').val(1);
+				$('#motor1').val(2);
+				$('#motor2').val(2);
 				submitForm();
 			});
 			$('#stop').click(function() {
@@ -124,8 +124,8 @@ if(isset($_POST['cmd'])) {
 				submitForm();
 			});
 			$('#backward').click(function() {
-				$('#motor1').val(2);
-				$('#motor2').val(2);
+				$('#motor1').val(1);
+				$('#motor2').val(1);
 				submitForm();
 			});
 			$('#rright').click(function() {

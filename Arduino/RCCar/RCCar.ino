@@ -17,13 +17,13 @@ const char* cmdURL = "http://SERVER.com/cmd.txt";
 
 
 // Initialize
-int PWM1 = D2; // PWM Pin Motor 1
-int PoM1 = D1;   // Polarity Pin Motor 1
-int PWM2 = D4; // PWM Pin Motor 2  
-int PoM2 = D3;   // Polarity Pin Motor 2
+int PWM1 = D2; // PWM Pin Motor 1 (ln1)
+int PoM1 = D1;   // Polarity Pin Motor 1 (ln2)
+int PWM2 = D4; // PWM Pin Motor 2 (ln4)
+int PoM2 = D3;   // Polarity Pin Motor 2 (ln3)
 
-int ValM1 = 200; // Initial Value for PWM Motor 1 
-int ValM2 = 200; // Initial Value for PWM Motor 2
+int ValM1 = 69; // Initial Value for PWM Motor 1 
+int ValM2 = 69; // Initial Value for PWM Motor 2
 
 void setup()
 {
